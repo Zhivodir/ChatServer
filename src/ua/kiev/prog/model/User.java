@@ -9,10 +9,12 @@ import com.google.gson.GsonBuilder;
 public class User {
     private String name;
     private String pswd;
+    private UserStatus userStatus;
 
-    public User(String name, String pswd) {
+    public User(String name, String pswd, UserStatus userStatus) {
         this.name = name;
         this.pswd = pswd;
+        this.userStatus = userStatus;
     }
 
     public String getName() {
@@ -21,6 +23,14 @@ public class User {
 
     public String getPswd() {
         return pswd;
+    }
+
+    public UserStatus getUserStatus() {
+        return userStatus;
+    }
+
+    public void setUserStatus(UserStatus userStatus) {
+        this.userStatus = userStatus;
     }
 
     public String toJSON() {

@@ -40,6 +40,15 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 		<url-pattern>/getUsersList</url-pattern>
 	</servlet-mapping>
 
+	<servlet>
+		<servlet-name>GetUserStatus</servlet-name>
+		<servlet-class>ua.kiev.prog.servlets.GetUserStatus</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>GetUserStatus</servlet-name>
+		<url-pattern>/getUserStatus</url-pattern>
+	</servlet-mapping>
+
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
 	</welcome-file-list>

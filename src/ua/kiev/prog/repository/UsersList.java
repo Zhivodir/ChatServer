@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import ua.kiev.prog.JsonUsers;
 import ua.kiev.prog.model.User;
+import ua.kiev.prog.model.UserStatus;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,9 +23,9 @@ public class UsersList {
 
     private UsersList() {
         list = new ArrayList<>();
-        list.add(new User("Dima","123"));
-        list.add(new User("Admin","qwezxc"));
-        list.add(new User("test","sdf"));
+        list.add(new User("Dima","123", UserStatus.OFFLINE));
+        list.add(new User("Admin","qwezxc", UserStatus.OFFLINE));
+        list.add(new User("test","sdf", UserStatus.OFFLINE));
         gson = new GsonBuilder().create();
     }
 
