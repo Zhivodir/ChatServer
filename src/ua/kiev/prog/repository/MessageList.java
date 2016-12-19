@@ -1,5 +1,6 @@
 package ua.kiev.prog.repository;
 
+import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 import com.google.gson.Gson;
@@ -22,13 +23,25 @@ public class MessageList {
 	}
 	
 	public synchronized void add(Message m) {
-//		if((list.size() != 0) && (m.getDate().getTime() - list.get(0).getDate().getTime()) > 5000)
-//		{
-//			list.remove(0);
-//		}
+		if(list.size() != 0) {
+			long currentTime = new Date().getTime();
+			long oldestMessage = list.get(0).getDate().getTime();
+			if ((currentTime - oldestMessage) > 10000) {
+				list.remove(0);
+//				for (Message message : msgList.getList()) {
+//					if (currentTime - message.getDate().getTime() > 10000) {
+//						msgList.getList().remove(message);
+//					}
+//				}
+			}
+		}
 		list.add(m);
 	}
-	
+
+	public List<Message> getList(){
+		return list;
+	}
+
 	public synchronized String toJSON(int n, String login) {
 		if (n == list.size()) return null;
 		return gson.toJson(new JsonMessages(list, n, login));
