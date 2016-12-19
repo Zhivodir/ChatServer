@@ -1,4 +1,7 @@
-package ua.kiev.prog;
+package ua.kiev.prog.servlets;
+
+import ua.kiev.prog.model.User;
+import ua.kiev.prog.repository.UsersList;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;

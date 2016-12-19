@@ -1,4 +1,7 @@
-package ua.kiev.prog;
+package ua.kiev.prog.servlets;
+
+import ua.kiev.prog.model.Message;
+import ua.kiev.prog.repository.MessageList;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;

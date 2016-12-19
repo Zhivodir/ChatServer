@@ -1,10 +1,11 @@
-package ua.kiev.prog;
+package ua.kiev.prog.repository;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import ua.kiev.prog.JsonUsers;
+import ua.kiev.prog.model.User;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -13,6 +14,7 @@ import java.util.List;
 public class UsersList {
     private static final UsersList usrList = new UsersList();
     private final List<User> list;
+    private final Gson gson;
 
     public static UsersList getInstance() {
         return usrList;
@@ -23,13 +25,14 @@ public class UsersList {
         list.add(new User("Dima","123"));
         list.add(new User("Admin","qwezxc"));
         list.add(new User("test","sdf"));
+        gson = new GsonBuilder().create();
     }
 
-    public void addUser(User user){
+    public synchronized void addUser(User user){
         list.add(user);
     }
 
-    public void delUser(User user){
+    public synchronized  void delUser(User user){
         list.remove(user);
     }
 
@@ -39,4 +42,7 @@ public class UsersList {
 
     //public boolean isLogin
 
+    public synchronized String toJSON() {
+        return gson.toJson(new JsonUsers(list));
+    }
 }

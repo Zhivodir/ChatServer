@@ -1,4 +1,4 @@
-package ua.kiev.prog;
+package ua.kiev.prog.model;
 
 import java.io.*;
 import java.net.HttpURLConnection;
